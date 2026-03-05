@@ -1,0 +1,128 @@
+/* Main Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  border-bottom: 2px solid #eee;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-image {
+  height: 65px;
+  margin-right: 10px;
+}
+
+/* Desktop Links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar-links a {
+  color: #212121;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #005245;
+  text-decoration: underline;
+}
+
+/* Register Button */
+.register-button {
+  background-color: #005245;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #003d35;
+}
+
+/* Hamburger */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background: black;
+  margin: 4px 0;
+  transition: 0.3s ease;
+}
+
+/* Hamburger Animation */
+.navbar-toggle.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+    transform: translateY(-150%);
+    transition: 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  .navbar-links.active {
+    transform: translateY(0);
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-links a {
+    width: 100%;
+  }
+
+  .register-button {
+    width: 100%;
+  }
+
+  .navbar-logo-image {
+    height: 50px;
+  }
+}

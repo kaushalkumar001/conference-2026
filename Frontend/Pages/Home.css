@@ -1,0 +1,252 @@
+.home-container {
+  background-image: url('../src/photos/home.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;   /* Better than fixed height */
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
+
+.about-container {
+  text-align: center;
+}
+
+.about-div{
+  margin-bottom: 5rem;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  color: #E88532;
+  margin-bottom: 20px;
+}
+.about-section h1 {
+  font-size: 1.5rem;
+  color: #212121;
+  font-weight:normal;
+
+
+}
+
+
+.about-section {
+  padding-top: 60px;
+  background-color: transparent;
+}
+
+.about-container {
+  height: 27rem;
+  width: 85%;
+  border-radius: 2rem;
+  margin: auto;
+  text-align: center;
+  background-color: #f8f9fc;
+  border: 1px solid #ddd; 
+  box-shadow: 15px 15px 18px rgba(19, 61, 27, 0.327);
+}
+
+.about-content{
+  background-image: url("https://i.pinimg.com/1200x/d9/c3/0e/d9c30e583064dd360ab1e87ddd18cb8b.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 23.2rem;
+  width: 95%;
+  margin: 2.3% auto; 
+  border-radius: 1.4rem;
+  display: flex;
+  position: relative;
+
+} 
+
+
+.about-image {
+  height: 100%;
+  width: auto;
+  margin-left: auto;
+  border-radius: 0 1.4rem 1.4rem 0;
+}
+
+.about-container h2{
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #FFFFFF;
+  font-weight: 550;
+  position:absolute;
+  background-color: transparent;
+  margin-top: 3rem;
+  margin-left: 3.5rem;
+  text-shadow: 4px 4px 8px #005245;
+}
+
+.about-content h4{
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  font-weight: lighter;
+  font-style: italic;
+  background-color: transparent; 
+  text-align: left;
+  position: absolute;
+  margin-top: 6rem;
+  margin-left: 3.5rem;
+  text-shadow: 4px 4px 8px #005245;
+
+
+}
+
+.about-content p {
+  justify-content: center;
+  justify-items: center;
+  text-align: left;
+  position: absolute;
+  background-color: transparent ;
+  color: #FFFFFF ;
+  font-size: .9rem;
+  margin-top: 11rem;
+  margin-left: 3.5rem;
+  font-weight: lighter;
+  text-shadow: 4px 4px 8px #005245;
+
+}
+
+.about-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  gap: 3rem;
+}
+
+
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+
+/* Large Tablet */
+@media screen and (max-width: 1024px) {
+
+
+  .about-container{
+    height: auto;
+    padding: 20px;
+  }
+
+  .about-content{
+    height: auto;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .about-content p{
+    position: static;
+    margin: 20px 0 0 0;
+    text-align: center;
+  }
+
+  .about-content h4{
+    position: static;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .about-container h2{
+    position: static;
+    margin: 0;
+  }
+
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+
+  .home-container{
+    border-radius: 20px;
+    padding: 40px 10px;
+    background-size: cover;
+
+
+
+  }
+
+
+  .about-container{
+    width: 95%;
+  }
+
+  .about-content{
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .about-container h2{
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .about-content h4{
+    font-size: 1rem;
+  }
+
+  .about-content p{
+    font-size: .9rem;
+  }
+  .about-image{
+    display: none;
+  }
+
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+
+  .home-container{
+    border-radius: 10px;
+    background-size: contain;
+  }
+
+
+  .about-container{
+    width: 95%;
+    border-radius: 1rem;
+  }
+
+  .about-content{
+    padding: 15px;
+  }
+
+  .about-container h2{
+    font-size: 1.4rem;
+  }
+
+  .about-content h4{
+    font-size: .9rem;
+  }
+
+  .about-content p{
+    font-size: .8rem;
+    
+  }
+  .about-image {
+    display: none;
+  }
+}

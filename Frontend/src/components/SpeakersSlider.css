@@ -1,0 +1,67 @@
+.speakers-section {
+  padding: 80px 5%;
+  background: #f4f5f9;
+}
+
+.speaker-card {
+  position: relative;
+  height: 450px;
+  border-radius: 30px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: 0.4s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.speaker-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Purple curved background */
+.speaker-card::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: -10%;
+  width: 120%;
+  height: 300px;
+  background: #3f3c8c;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 30px;
+}
+
+.card-content h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 15px;
+  color: #555;
+}
+
+.image-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.image-wrapper img {
+  height: 320px;
+  object-fit: contain;
+  transition: 0.4s ease;
+}
+
+.speaker-card:hover img {
+  transform: scale(1.05);
+}
