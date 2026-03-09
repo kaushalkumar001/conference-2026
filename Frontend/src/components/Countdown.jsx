@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./countdown.css";
 
 const Countdown = () => {
-  const targetDate = new Date("May 27, 2026 00:00:00").getTime();
+  const targetDate = new Date("March 27, 2026 00:00:00").getTime();
 
   const [timeLeft, setTimeLeft] = useState(getTime());
 
@@ -47,7 +47,7 @@ const Countdown = () => {
             <p>MINUTES</p>
           </div>
 
-          <div className="time-card">
+          <div className="time-cards">
             <h1>{timeLeft.seconds}</h1>
             <p>SECONDS</p>
           </div>
@@ -55,8 +55,8 @@ const Countdown = () => {
         </div>
 
         <div className="conference-date">
-          <h2>27 - 28 May 2026</h2>
-          <p>Conference & Expo</p>
+          <h4>• 5 International Speakers • 15 National Speakers</h4>
+          <h4>• 2-Day Conference • 200+ Delegates Expected</h4>
         </div>
 
       </div>

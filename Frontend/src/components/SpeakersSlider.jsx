@@ -1,16 +1,17 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation , Autoplay} from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
 import "./SpeakersSlider.css";
 
-import speaker1 from "../photos/home.png";
-import speaker2 from "../photos/home.png";
-import speaker3 from "../photos/home.png";
-import speaker4 from "../photos/home.png";
+import speaker1 from "../photos/speaker.png";
+import speaker2 from "../photos/speaker.png";
+import speaker3 from "../photos/speaker.png";
+import speaker4 from "../photos/speaker.png";
+import speaker5 from "../photos/interspeaker.png"; 
 
 const speakers = [
   {
@@ -33,21 +34,35 @@ const speakers = [
     role: "Director, Adani Digital Labs",
     img: speaker4,
   },
+  {
+    name: "Gautam Adani",
+    role: "Director, Adani Digital Labs",
+    img: speaker5,
+  },
 ];
+
+// adding auto play functionality with smooth transition and infinite loop
+const autoPlayConfig = {
+  delay: 900,
+  disableOnInteraction: false,
+};
 
 const SpeakersSlider = () => {
   return (
     <section className="speakers-section">
       <Swiper
-        modules={[Navigation]}
-        spaceBetween={30}
-        slidesPerView={3}
+        modules={[Navigation, Autoplay]}
+        spaceBetween={20}
+        slidesPerView={4}
         navigation
         loop={true}
+        autoplay={autoPlayConfig}
+        speed={1500}
         breakpoints={{
           0: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
           1200: { slidesPerView: 3 },
+          1296: { slidesPerView: 4 },
         }}
       >
         {speakers.map((speaker, index) => (

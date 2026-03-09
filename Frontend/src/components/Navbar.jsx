@@ -34,7 +34,7 @@ const Navbar = () => {
         <Link to="/committee" onClick={closeMenu}>Committee</Link>
 
         <Link to="/register" onClick={closeMenu}>
-          <button className="register-button">Register Now →</button>
+          <button className="register-button">LOGIN</button>
         </Link>
       </div>
 
