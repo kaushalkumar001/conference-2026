@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
 .home-container {
   background-image: url('../src/photos/home.png');
   background-size: cover;
@@ -11,8 +16,101 @@
   justify-content: center;
   width: 100%;
 }
+.button__text span {
+  font-size: 10px;
+  letter-spacing: 1px;
+  background-color: #000;
+}
 
 
+
+.button {
+  cursor: pointer;
+  border: none;
+  background: #212121;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  place-content: center;
+  transition: background 300ms, transform 200ms;
+  font-weight: 600;
+}
+
+/* Rotating text container */
+.button__text {
+  background-color: transparent;
+  position: absolute;
+  inset: 0;
+  animation: text-rotation 20s linear infinite;
+}
+
+/* FIXED: removed nested selector */
+.button__text span {
+  position: absolute;
+  transform: rotate(calc(19deg * var(--index)));
+  inset: 5px;
+}
+
+.button-btn {
+  color: #ffffff;
+}
+
+.request-btn .button .button__text span {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+
+.button__circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.button__icon {
+  background-color: #000;
+}
+
+.button__icon--copy {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+
+.button:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.05);
+}
+
+.button:hover .button__icon {
+  color: #ffffff;
+}
+
+.button:hover .button__icon:first-child {
+  transition: transform 0.3s ease-in-out;
+  transform: translate(150%, -150%);
+}
+
+.button:hover .button__icon--copy {
+  transition: transform 0.3s ease-in-out 0.1s;
+  transform: translate(0);
+}
+
+/* Rotation animation */
+@keyframes text-rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .overview-section{
   padding:80px 0;
 }
@@ -139,13 +237,9 @@
   height:120px;
   border-radius:50%;
   background:black;
-  color:white;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  font-size:12px;
-  font-weight:600;
   cursor:pointer;
 }
 
@@ -349,9 +443,16 @@
   justify-content: center;
 }
 
+.speaker-headings{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+/* Top Tag */
 .international-tag{
-  margin-left:70px ;
-  color: #212121;
+  display:inline-block;
+  color:#212121;
   background:#e8e8e8;
   padding:8px 16px;
   border-radius:10px;
@@ -360,38 +461,67 @@
   letter-spacing:1px;
 }
 
-.speakersection h2{
+/* Heading */
+.speaker-headings h2{
   font-size:3rem;
-  margin-top:30px;
-  margin-left:70px ;
-  font-weight:bolder;
+  margin-top:20px;
+  font-weight:bold;
   color:#212121;
-
 }
+
+/* Description */
 .international-description{
-  font-size:20px;
+  font-size:19px;
   margin-top:10px;
-  margin-left:70px ;
-  font-weight:lighter;
   color:#544E51;
-  margin-bottom: 100px;
-
+  margin-bottom:60px;
+  max-width:700px;
 }
+
+/* International Speaker Tag */
 .international-header{
-  display: block;
-  width: fit-content;
-  text-align: center;
-  margin: auto;
-  color: #212121;
+  display:block;
+  width:fit-content;
+  margin:auto;
+  text-align:center;
+  color:#212121;
   background:#e8e8e8;
-  padding:8px 16px;
+  padding:8px 18px;
   border-radius:10px;
   font-size:24px;
   font-weight:500;
   letter-spacing:1px;
-  
+}
+/* Tablet */
+@media (max-width: 992px){
+  .speaker-headings h2{
+    font-size:2.4rem;
+  }
+
+  .international-description{
+    font-size:18px;
+  }
 }
 
+/* Mobile */
+@media (max-width: 600px){
+  .speaker-headings{
+    text-align:center;
+  }
+
+  .speaker-headings h2{
+    font-size:1.8rem;
+  }
+
+  .international-description{
+    font-size:16px;
+    margin-bottom:40px;
+  }
+
+  .international-header{
+    font-size:18px;
+  }
+}
 
 
 
@@ -431,6 +561,11 @@
     margin: 0;
   }
 
+ 
+  
+ 
+
+
 }
 
 /* Tablet */
@@ -469,6 +604,7 @@
     display: none;
   }
 
+  
 }
 
 /* Mobile */
@@ -477,7 +613,6 @@
   .home-container{
     background-image: url("../src/photos/logo-responsive.png");
     margin-top: -120px;
-    
     
   }
 
@@ -512,6 +647,8 @@
   .speakers-section p {
     margin-bottom: 10px;
   }
+
+  
 }
 
 
@@ -665,6 +802,241 @@
 
   .digital-card{
     padding:20px;
+  }
+
+}
+
+
+/* ===============================
+   GLOBAL SMOOTH SCROLL
+================================ */
+
+html{
+  scroll-behavior:smooth;
+}
+
+/* Smooth element rendering */
+
+*{
+  box-sizing:border-box;
+}
+
+/* ===============================
+   FADE-IN BASE ANIMATION
+================================ */
+
+.fade-up{
+  opacity:0;
+  transform:translateY(60px);
+  transition:all .8s ease;
+}
+
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.fade-left{
+  opacity:0;
+  transform:translateX(-60px);
+  transition:all .8s ease;
+}
+
+.fade-left.show{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.fade-right{
+  opacity:0;
+  transform:translateX(60px);
+  transition:all .8s ease;
+}
+
+.fade-right.show{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* ===============================
+   PREMIUM CARD HOVER
+================================ */
+
+.overview-card,
+.theme-card,
+.theme-cardw{
+  transition:all .4s ease;
+}
+
+.overview-card:hover,
+.theme-card:hover,
+.theme-cardw:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+
+/* ===============================
+   BUTTON PREMIUM EFFECT
+================================ */
+
+.download-btn,
+.register-btn{
+  transition:all .3s ease;
+}
+
+.download-btn:hover,
+.register-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ===============================
+   SPEAKER SECTION ANIMATION
+================================ */
+
+.speaker-headings{
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+  0%{
+    opacity:0;
+    transform:translateY(50px);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* ===============================
+   THEME CARD STAGGER EFFECT
+================================ */
+
+.theme-card{
+  animation:cardFade .8s ease;
+}
+
+.theme-cardw{
+  animation:cardFade 1s ease;
+}
+
+@keyframes cardFade{
+
+  0%{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* ===============================
+   PARALLAX EFFECT
+================================ */
+
+.themes-section{
+  background-attachment:fixed;
+}
+
+/* ===============================
+   SCROLL REVEAL SMOOTHNESS
+================================ */
+
+
+
+.guests-section{
+  display:flex;
+  justify-content:center;
+  gap:60px;
+  padding:80px 10%;
+  background:#006081;
+  color:#ffffff;
+  flex-wrap:wrap;
+}
+
+/* Titles */
+
+.title{
+  font-size:40px;
+  font-weight:700;
+  margin-bottom:40px;
+  letter-spacing:2px;
+  background-color: #005245;
+}
+
+/* Chief Guest */
+
+.chief-card{
+  width:420px;
+}
+
+.guest-card{
+  background:#005245;
+  padding:30px;
+  border-radius:12px;
+  text-align:center;
+  position:relative;
+}
+
+.chief-guest{
+  margin-bottom: 100px;
+  justify-content:center;
+}
+
+.chief-guest img{
+  background-color: #005245;
+}
+
+
+.guest-card img{
+  width:220px;
+  margin-top:-60px;
+  background-color: transparent;
+}
+
+/* Guests grid */
+
+.honor-section{
+  flex:1;
+}
+
+.guest-grid{
+  display:flex;
+  gap:40px;
+}
+
+.guest-card h3{
+  font-size:22px;
+  margin-top:20px;
+  background-color: #005245;
+}
+
+.guest-card p{
+  font-size:16px;
+  opacity:0.9;
+  background-color: #005245;
+}
+
+/* Responsive */
+
+@media (max-width:900px){
+
+  .guests-section{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .guest-grid{
+    flex-direction:column;
   }
 
 }

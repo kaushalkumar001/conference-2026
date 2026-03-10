@@ -5,7 +5,9 @@ import Navbar from "./components/Navbar";
 import Contact from "../Pages/Contact";
 import ScrollToHash from "./ScrollToHash";
 import Loader from "../src/components/Loader.jsx"; // also fixed path
+import RegisterPopup from "./components/RegisterPopup.jsx"; // also fixed path
 import "./App.css";
+import Login from "../Pages/Login.jsx"; // also fixed path
 
 function App() {
 
@@ -30,8 +32,9 @@ function App() {
       <Navbar />
       <ScrollToHash />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/Login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

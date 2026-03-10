@@ -1,18 +1,19 @@
 import React from "react";
 import "./Home.css";
+import Tab from "../src/components/Tabs.jsx";
 import SpeakersSlider from "../src/components/SpeakersSlider.jsx";
 import Countdown  from "../src/components/Countdown.jsx";
-import jitin from "../src/photos/doctor.png";
 import ExploreButtom from "../src/components/ExploreButton.jsx";
 import pharma from "../src/photos/pharma.png";
 import overview from "../src/photos/overview.png";
+import cheif from "../src/photos/chief.png";
 
 const Home = () => {
   return (
     <div> {/* ✅ Single parent wrapper */}
 
       {/* HERO SECTION */}
-      <section className="home-section">
+      <section className="home-section" id="home">
         <div className="home-container">
                    <ExploreButtom />
           <Countdown />
@@ -22,16 +23,17 @@ const Home = () => {
       </section>
 
       {/* overview section */}
-       <section className="overview-section">
+       <section className="overview-section" loading="lazy">
 
       <div className="overview-container">
 
         {/* LEFT CONTENT */}
         <div className="overview-left">
 
-          <span className="overview-badge">OVERVIEW</span>
+          <span className="overview-badge"
+         >OVERVIEW</span>
 
-          <h1>
+          <h1 id="overview">
             Driving Digital Excellence Across the Pharmaceutical Value Chain
           </h1>
 
@@ -88,7 +90,56 @@ const Home = () => {
           </div>
 
           <div className="request-btn">
-            REQUEST <br /> BROCHURE ↗
+            <button className="button">
+              <p className="button__text">
+                <span style={{ "--index": 0}}>R</span>
+                <span style={{ "--index": 1}}>E</span>
+                <span style={{ "--index": 2}}>Q</span>
+                <span style={{ "--index": 3 }}>U</span>
+                <span style={{ "--index": 4 }}>E</span>
+                <span style={{ "--index": 5 }}>S</span>
+                <span style={{ "--index": 6 }}>T</span>
+                <span style={{ "--index": 7 }}> </span>
+                <span style={{ "--index": 8 }}>.</span>
+                <span style={{ "--index": 9 }}> </span>
+                <span style={{ "--index": 10 }}>B</span>
+                <span style={{ "--index": 11}}>R</span>
+                <span style={{ "--index": 12 }}>O</span>
+                <span style={{ "--index": 13 }}>C</span>
+                <span style={{ "--index": 14 }}>H</span>
+                <span style={{ "--index": 15 }}>U</span>
+                <span style={{ "--index": 16 }}>R</span>
+                <span style={{ "--index": 17 }}>E</span>
+              </p>
+
+              <div className="button__circle">
+                <svg
+                  viewBox="0 0 14 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="button__icon"
+                  width="14"
+                >
+                  <path
+                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                    fill="currentColor"
+                  />
+                </svg>
+
+                <svg
+                  viewBox="0 0 14 15"
+                  fill="none"
+                  width="14"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="button__icon button__icon--copy"
+                >
+                  <path
+                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+        </button>
           </div>
 
         </div>
@@ -104,7 +155,7 @@ const Home = () => {
         <section className="themes-section"
         loading="lazy">
 
-        <div className="themes-header">
+        <div className="themes-header" id="agenda">
           <span className="themes-tag">KEY THEMES TO BE DISCUSSED</span>
           <h1>Core Focus Areas Driving Innovation in Pharma</h1>
         </div>
@@ -231,23 +282,68 @@ const Home = () => {
 
 
       {/* ABOUT SECTION */}
-      <section className="speakersection">
-        <div className="speaker-headings">
-          <span className="international-tag">SPEAKERS</span>
-          <h2>Meet the Minds Shaping the Future</h2>
-          <p className="international-description">
-            Discover the Industry Leaders and Experts Sharing Insights That Drive Change
-          </p>
-          <span className="international-header">INTERNATIONAL SPEAKERS</span>
-          </div>
+      <section className="speakersection" loading="lazy">
+                  <div className="speaker-headings">
+                        <span className="international-tag">SPEAKERS</span>
+
+                        <h2>Meet the Minds Shaping the Future</h2>
+
+                        <p className="international-description">
+                          Discover the Industry Leaders and Experts Sharing Insights That Drive Change
+                        </p>
+
+                        <span className="international-header" id="speakers">
+                          INTERNATIONAL SPEAKERS
+                        </span>
+            </div>
 
             <SpeakersSlider />
                       <span className="international-header">NATIONAL SPEAKERS</span>
 
                   <SpeakersSlider />
+    </section>   
+    <section>
+              <div className="guests-section">
 
-    </section>        
+              <div className="chief-card">
+                <h2 className="title">CHIEF GUEST</h2>
 
+                <div className="chief-guest">
+                  <img src={cheif} alt="chief guest" />
+
+                  <h3>Dr. Deependra Singh</h3>
+                  <p>Honorable Chairman ERC,</p>
+                  <p>Pharmacy Council of India</p>
+                </div>
+              </div>
+
+
+              <div className="honor-section">
+                <h2 className="title">GUESTS OF HONOR</h2>
+
+                <div className="guest-grid">
+
+                  <div className="guest-card">
+                    <img src={cheif} alt="guest" />
+
+                    <h3>Mr. Sushil Kumar Bansal</h3>
+                    <p>President, Punjab Pharmacy</p>
+                    <p>Council, Govt. of Punjab</p>
+                  </div>
+
+                  <div className="guest-card">
+                    <img src={cheif} alt="guest" />
+
+                    <h3>Mr. Gopal Krishan</h3>
+                    <p>President, Himachal Pradesh</p>
+                    <p>Pharmacy Council</p>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+    </section>
       
     </div>
   );

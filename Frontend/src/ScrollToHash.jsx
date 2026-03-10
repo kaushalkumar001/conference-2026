@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const NAVBAR_OFFSET = 120; // match your fixed navbar height
+const NAVBAR_OFFSET = 100; // match your fixed navbar height
 
 const ScrollToHash = () => {
   const { hash, pathname } = useLocation();

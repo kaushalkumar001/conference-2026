@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
+import RegisterPopup from "./RegisterPopup";
 import logo from "../photos/logo.png";
 import Sviet from "../photos/SVIET-Logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -15,37 +17,60 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  const openPopup = () => {
+    setShowPopup(true);
+    closeMenu();
+  };
+
   return (
-    <nav className="navbar">
+    <>
+      <nav className="navbar">
+        
+        <div className="navbar-logo">
+          <img src={Sviet} className="navbar-logo-image" alt="SVIET Logo" />
+          <img src={logo} className="navbar-logo-image" alt="Conference Logo" />
+        </div>
 
-      {/* Logo Section */}
-      <div className="navbar-logo">
-        <img src={Sviet} className="navbar-logo-image" alt="SVIET Logo" />
-        <img src={logo} className="navbar-logo-image" alt="Conference Logo" />
-      </div>
+        <div className={`navbar-links ${isOpen ? "active" : ""}`}>
+          <NavLink to="/#home" onClick={closeMenu}>Home</NavLink>
+          <NavLink to="/#overview" onClick={closeMenu}>Overview</NavLink>
+          <NavLink to="/#agenda" onClick={closeMenu}>Agenda</NavLink>
+          <NavLink to="/#speakers" onClick={closeMenu}>Speakers</NavLink>
 
-      {/* Navigation Links */}
-      <div className={`navbar-links ${isOpen ? "active" : ""}`}>
-        <Link to="/" onClick={closeMenu}>Home</Link>
-        <Link to="/contact" onClick={closeMenu}>Contact</Link>
-        <Link to="/about" onClick={closeMenu}>About</Link>
-        <Link to="/speakers" onClick={closeMenu}>Speakers</Link>
-        <Link to="/speakers-call" onClick={closeMenu}>Speakers Call</Link>
-        <Link to="/committee" onClick={closeMenu}>Committee</Link>
+          {/* Registration Button */}
+          <button type="button" onClick={openPopup} className="nav-register-btn">
+            Registration
+          </button>
 
-        <Link to="/register" onClick={closeMenu}>
-          <button className="register-button">LOGIN</button>
-        </Link>
-      </div>
+          <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
 
-      {/* Hamburger Icon */}
-      <div className={`navbar-toggle ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
-        <span className="bar"></span>
-        <span className="bar"></span>
-        <span className="bar"></span>
-      </div>
+          <Link to="/login" onClick={closeMenu}>
+            <button className="register-button">LOGIN</button>
+          </Link>
+        </div>
 
-    </nav>
+        {/* Overlay */}
+        <div
+          className={`overlay ${isOpen ? "active" : ""}`}
+          onClick={closeMenu}
+        ></div>
+
+        {/* Hamburger */}
+        <div
+          className={`navbar-toggle ${isOpen ? "open" : ""}`}
+          onClick={toggleMenu}
+        >
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
+      </nav>
+
+      {/* Popup outside navbar */}
+          {showPopup && (
+            <RegisterPopup closePopup={() => setShowPopup(false)} />
+          )}
+    </>
   );
 };
 
